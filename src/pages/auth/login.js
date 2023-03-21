@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import logo from "../../assets/logo.png";
 import "../../css/Login.css";
-
+import Navbar from "../../components/navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -12,7 +12,8 @@ function Login() {
   const toRegister = () => navigate("/register");
   return (
     <>
-      <div className="div-cont">
+    <Navbar/>
+      <div className="div-cont-login mt-5">
         <img src={logo} alt="" />
         <Card className="title">
           <Card.Header className="d-flex justify-content-center ">
@@ -30,7 +31,7 @@ function Login() {
                 <Form.Control type="password" placeholder="Enter Password" />
               </Form.Group>
               <div className="btn">
-                <Button className="enter" variant="primary" type="submit">
+                <Button className="enter" type="submit">
                   Masuk
                 </Button>
                 <Form.Text className="text" onClick={toRegister}>Belum Punya Akun</Form.Text>

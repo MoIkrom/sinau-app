@@ -1,0 +1,15 @@
+.container-fluid {
+  background-color: #86b7fe;
+
+}
+
+.div-cont {
+  display: flex !important ;
+  flex-direction: row;
+  justify-content:center !important ;
+}
+
+.logo {
+  width: 80px !important;
+  height: 75px !important;
+}

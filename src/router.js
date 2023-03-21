@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/HomePage";
 import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
+import Dashboard from "./pages/dashboard/dashboard";
+import NewProduct from "./pages/product/newProduct";
 
 const router = createBrowserRouter([
-  // { path: "/", element: <App />, errorElement: <Error /> },
   { path: "/", element: <Home /> },
   {
     path: "/login",
@@ -22,14 +23,14 @@ const router = createBrowserRouter([
       //     </BackRoutes>
     ),
   },
-  // {
-  //   path: "/profile",
-  //   element: (
-  //     <PrivateRoutes allowedRoles={["user", "admin"]}>
-  //       <Profile />
-  //     </PrivateRoutes>
-  //   ),
-  // },
+  {
+    path: "/dashboard",
+    element: (
+      //     <PrivateRoutes allowedRoles={["user", "admin"]}>
+      <Dashboard />
+      //     </PrivateRoutes>
+    ),
+  },
   // {
   //   path: "/product",
   //   element: <Product />,
@@ -83,14 +84,14 @@ const router = createBrowserRouter([
   //     </PrivateRoutes>
   //   ),
   // },
-  // {
-  //   path: "/new-product",
-  //   element: (
+   {
+     path: "/new-product",
+     element: (
   //     <PrivateRoutes allowedRoles={["admin"]}>
-  //       <NewProduct />
+         <NewProduct />
   //     </PrivateRoutes>
-  //   ),
-  // },
+     ),
+   },
 ]);
 
 export default router;

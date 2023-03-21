@@ -1,17 +1,17 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../assets/logo.png";
-import css from "../../css/Navbar.modules.css";
+import "../../css/Navbar.css";
 
-function Navbars() {
+function Navbar() {
   return (
     <nav className="navbar bg-body-tertiary">
-      <div className={`container-fluid ${css["div-cont"]}`}>
+      <div className={"div-cont container-fluid "}>
         <p className="navbar-brand mb-0 mx-0 h1">MARKETPLACE</p>
-        <img src={logo} alt="Logo" className={`${css["logo"]}`} />
+        <img src={logo} alt="Logo" className={"logo"} />
       </div>
     </nav>
   );
 }
 
-export default Navbars;
+export default Navbar;
