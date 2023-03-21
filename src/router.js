@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/HomePage";
 import Login from "./pages/auth/login";
+import Register from "./pages/auth/register";
 
 const router = createBrowserRouter([
   // { path: "/", element: <App />, errorElement: <Error /> },
@@ -13,14 +14,14 @@ const router = createBrowserRouter([
       //     </BackRoutes>
     ),
   },
-  // {
-  //   path: "/register",
-  //   element: (
-  //     <BackRoutes>
-  //       <Register />
-  //     </BackRoutes>
-  //   ),
-  // },
+  {
+    path: "/register",
+    element: (
+      //     <BackRoutes>
+      <Register />
+      //     </BackRoutes>
+    ),
+  },
   // {
   //   path: "/profile",
   //   element: (

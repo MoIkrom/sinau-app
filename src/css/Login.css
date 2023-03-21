@@ -1,4 +1,22 @@
 .div-cont {
   display: flex;
   flex-direction: row;
+  justify-content: center !important;
+}
+.title{
+  width: 500px; 
+}
+
+.btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+}
+
+.enter{
+  margin: auto;
+}
+.text{
+  text-decoration: underline;
+  color: rgb(75, 149, 235);
 }
