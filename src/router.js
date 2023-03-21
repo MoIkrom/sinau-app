@@ -1,17 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/HomePage";
+import Login from "./pages/auth/login";
 
 const router = createBrowserRouter([
   // { path: "/", element: <App />, errorElement: <Error /> },
   { path: "/", element: <Home /> },
-  // {
-  //   path: "/login",
-  //   element: (
-  //     <BackRoutes>
-  //       <Login />
-  //     </BackRoutes>
-  //   ),
-  // },
+  {
+    path: "/login",
+    element: (
+      //     <BackRoutes>
+      <Login />
+      //     </BackRoutes>
+    ),
+  },
   // {
   //   path: "/register",
   //   element: (
