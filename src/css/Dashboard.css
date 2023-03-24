@@ -1,12 +1,24 @@
-.img-profile{
-    width: 150px;
+.img-profile {
+  width: 150px;
 }
-.gaps{
-    gap:50px
+.gaps {
+  gap: 50px;
 }
-.widths{
-    width: 50rem;
+.widths {
+  width: 50rem;
 }
-.bgColor{
-    background-color: #86b7fe;
+.bgColor {
+  background-color: #86b7fe;
+}
+.border {
+  border-bottom: 1px solid #dee2e6;
+}
+.canvas {
+  width: 13px;
+  height: 13px;
+  background-color: rgb(7, 182, 1);
+  border-radius: 50px;
+}
+.width-ol {
+  width: 120px;
 }

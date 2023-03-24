@@ -2,7 +2,22 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
+import axios from "axios";
+
 function Tables() {
+  const getProductAll = () => {
+    const token = localStorage.getItem("token");
+    axios
+      .get(`http://159.223.57.121:8090/users/find-by-username`, { headers: { "authorizations": token } })
+      .then((res) => {
+        console.log(res);
+        // setProfile(res.data.result.result[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <Table striped bordered hover>
