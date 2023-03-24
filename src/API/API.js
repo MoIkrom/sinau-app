@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const HOST = "https://sinau-app-backend-api-2023-moikrom.vercel.app/api/v1";
+const HOST = "https://sinau-backend-api.vercel.app/api/v1";
 
 // AUTHENTHICATION
 export const login = (body) => {
@@ -63,7 +63,6 @@ export const getProductById = (id) => {
 
 export const createProduct = (body) => {
   const token = localStorage.getItem("token");
-  console.log(token);
   const URL = HOST + "/product";
   return axios.post(URL, body, {
     headers: {

@@ -9,8 +9,12 @@ import profile from "../../assets/profile.png";
 import "../../css/Dashboard.css";
 import Tables from "../../components/table/Tables";
 import { getProfile, getProduct } from "../../API/API";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
+  const toNewProduct = () => navigate("/new-product");
+
   const [username, setusername] = useState("");
   const [product, setProduct] = useState([]);
 
@@ -96,7 +100,9 @@ function Dashboard() {
             </Card.Header>
             <Card.Body className="d-flex align-items-center justify-content-between">
               <Card.Text className="font">Barang </Card.Text>
-              <Button className="font">Tambah Barang</Button>
+              <Button className="font" onClick={toNewProduct}>
+                Tambah Barang
+              </Button>
             </Card.Body>
             <div className="container">
               <Table striped bordered hover>

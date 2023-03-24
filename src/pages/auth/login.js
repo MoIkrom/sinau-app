@@ -48,7 +48,7 @@ function Login() {
         // setLoading(false);
       })
       .catch((err) => {
-        toast.error("Invalid UserName / Profile Name", {
+        toast.error("Wrong Email / Password", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 2000,
         });
