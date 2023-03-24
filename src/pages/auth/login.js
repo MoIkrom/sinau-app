@@ -8,17 +8,17 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import { login } from "../../API/API";
 
 function Login() {
   const navigate = useNavigate();
   const toRegister = () => navigate("/register");
 
-  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleUserName = (e) => {
-    setUserName(e.target.value);
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
@@ -26,15 +26,20 @@ function Login() {
 
   const handleApi = (e) => {
     e.preventDefault();
-    axios
-      .post(`https://sinau-app-backend-api-2023.vercel.app/api/v1/auth/login`, {
-        password,
-        username,
-      })
+    login({
+      email,
+      password,
+    })
       .then((response) => {
-        // console.log(response.data.data);
+        const currentdate = new Date();
+        const datetime = currentdate.getDate() + "-" + currentdate.getMonth() + "-" + currentdate.getFullYear();
+        const clock = new Date(new Date()).toString().split(" ")[4];
+        const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+        const day = daysOfWeek[currentdate.getDay()];
         localStorage.setItem("token", response.data.data.token);
-        localStorage.setItem("username", response.data.data.username);
+        localStorage.setItem("loginDate", datetime);
+        localStorage.setItem("loginTime", clock);
+        localStorage.setItem("loginDay", day);
         toast.success("Login success", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 2000,
@@ -51,6 +56,7 @@ function Login() {
         // setLoading(false);
       });
   };
+
   return (
     <>
       <Navbar />
@@ -61,8 +67,8 @@ function Login() {
           <Card.Body>
             <Form onSubmit={handleApi}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter Username" onChange={handleUserName} />
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter Your Email" onChange={handleEmail} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">

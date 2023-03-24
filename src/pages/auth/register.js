@@ -3,40 +3,46 @@ import Card from "react-bootstrap/Card";
 import logo from "../../assets/logo.png";
 import "../../css/Login.css";
 import Navbars from "../../components/navbar/Navbar";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function Login() {
+import { register } from "../../API/API";
+
+function Register() {
   const navigate = useNavigate();
   const toLogin = () => navigate("/login");
 
-  const [userName, setUserName] = useState("");
-  const [profileName, setProfileName] = useState("");
+  const [username, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setconfirmPassword] = useState("");
   // const [loading, setLoading] = useState(false);
 
   const handleUserName = (e) => {
     setUserName(e.target.value);
   };
-  const handleProfileName = (e) => {
-    setProfileName(e.target.value);
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
 
+  const handleConfirmPassword = (e) => {
+    setconfirmPassword(e.target.value);
+  };
+
   const handleApi = (e) => {
     e.preventDefault();
-    axios
-      .post(`http://159.223.57.121:8090/auth/register`, {
-        password,
-        profileName,
-        userName,
-      })
+    register({
+      username,
+      email,
+      password,
+      confirmPassword,
+    })
       .then((response) => {
         console.log(response);
         toast.success("Register success", {
@@ -70,13 +76,17 @@ function Login() {
                 <Form.Control type="text" placeholder="Enter Username" onChange={handleUserName} />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Profile Name</Form.Label>
-                <Form.Control type="text" placeholder="Enter Profile Name" onChange={handleProfileName} />
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter Your Email" onChange={handleEmail} />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Enter Password" onChange={handlePassword} />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control type="password" placeholder="Enter Confirm Password" onChange={handleConfirmPassword} />
               </Form.Group>
               <div className="btn">
                 <Button className="enter" variant="primary" type="submit">
@@ -95,4 +105,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
