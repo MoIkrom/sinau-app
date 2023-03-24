@@ -47,15 +47,15 @@ function Register() {
         console.log(response);
         toast.success("Register success", {
           position: toast.POSITION.TOP_CENTER,
-          autoClose: 2000,
+          autoClose: 1000,
         });
-        // setTimeout(() => navigate("/login"), 3000);
+        setTimeout(() => navigate("/login"), 1500);
         // setLoading(false);
       })
       .catch((err) => {
         toast.error("Invalid UserName / Profile Name", {
           position: toast.POSITION.TOP_CENTER,
-          autoClose: 2000,
+          autoClose: 1000,
         });
         console.log(err);
         // setLoading(false);

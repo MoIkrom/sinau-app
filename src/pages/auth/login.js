@@ -42,15 +42,15 @@ function Login() {
         localStorage.setItem("loginDay", day);
         toast.success("Login success", {
           position: toast.POSITION.TOP_CENTER,
-          autoClose: 2000,
+          autoClose: 1000,
         });
-        setTimeout(() => navigate("/dashboard"), 3000);
+        setTimeout(() => navigate("/dashboard"), 1500);
         // setLoading(false);
       })
       .catch((err) => {
         toast.error("Wrong Email / Password", {
           position: toast.POSITION.TOP_CENTER,
-          autoClose: 2000,
+          autoClose: 1000,
         });
         console.log(err);
         // setLoading(false);
