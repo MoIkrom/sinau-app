@@ -34,7 +34,7 @@ function Login() {
         const currentdate = new Date();
         const datetime = currentdate.getDate() + "-" + currentdate.getMonth() + "-" + currentdate.getFullYear();
         const clock = new Date(new Date()).toString().split(" ")[4];
-        const daysOfWeek = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+        const daysOfWeek = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
         const day = daysOfWeek[currentdate.getDay()];
         localStorage.setItem("token", response.data.data.token);
         localStorage.setItem("loginDate", datetime);

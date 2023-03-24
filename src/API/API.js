@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const HOST = "localhost:3001/api/v1";
-const HOST = "https://sinau-backend-api.vercel.app/api/v1";
+// const HOST = "http://localhost:3000/api/v1";
+const HOST = "https://backend-api-2023.vercel.app/api/v1";
 
 // AUTHENTHICATION
 export const login = (body) => {
