@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,900&display=swap");
 .div-cont-login {
   display: flex;
   flex-direction: row;
@@ -9,6 +10,10 @@
   width: 500px;
   height: 415px;
 }
+.titlez {
+  width: 500px;
+  height: 500px;
+}
 
 .btn {
   display: flex;
@@ -18,15 +23,36 @@
 
 .enter {
   margin: auto;
-  background-color: #86b7fe;
-  border-color: #86b7fe;
+  background-color: #1663d8;
+  border-color: #1663d8;
 }
-.enter:hover {
+.disable {
   margin: auto;
-  background-color: #86b7fe;
-  border-color: #86b7fe;
+  background-color: #bfc0c2 !important;
+  border-color: #bfc0c2 !important;
+  color: rgb(0, 0, 0) !important;
 }
+.disable :hover {
+  cursor: pointer !important;
+}
+
 .text {
   text-decoration: underline;
   color: rgb(75, 149, 235);
+}
+.sizes-eye {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.sizes-eyez {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.fontsz {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 10px;
 }

@@ -16,6 +16,9 @@
 .widths {
   width: 50rem;
 }
+.mins {
+  min-height: 500px;
+}
 .bgColor {
   background-color: #86b7fe;
 }
@@ -31,4 +34,36 @@
 }
 .width-ol {
   width: 120px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.hover-bg {
+  background: #ffffff;
+}
+.click-bg {
+  background: #86b7fe;
+  height: 49px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  padding-left: 17px !important;
+}
+
+.f-22 {
+  font-size: 22px;
+  font-weight: 900 !important;
+  margin: 0px !important;
+  text-decoration: underline;
+}
+.f-18 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0px !important;
+}
+
+.width-bt {
+  width: 68px;
 }

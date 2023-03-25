@@ -1,3 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,900&display=swap");
+
+.font-20 {
+  font-size: 20px;
+  font-family: poppins;
+  font-weight: 500;
+}
+.font-16 {
+  font-size: 16px;
+  font-family: poppins;
+  font-weight: 500;
+}
 .text-title {
   width: 300px;
+}
+.width-dd {
+  width: 200px !important;
 }

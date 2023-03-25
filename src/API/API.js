@@ -3,7 +3,7 @@ import axios from "axios";
 // const HOST = "http://localhost:3000/api/v1";
 const HOST = "https://backend-api-2023.vercel.app/api/v1";
 
-// AUTHENTHICATION
+// START AUTHENTHICATION
 export const login = (body) => {
   const URL = HOST + "/auth/login";
   return axios.post(URL, body);
@@ -19,7 +19,9 @@ export const Logout = () => {
   });
 };
 
-// USER
+//  END AUTHENTHICATION
+
+// START USER
 export const register = (body) => {
   const URL = HOST + "/user";
   return axios.post(URL, body);
@@ -35,7 +37,9 @@ export const getProfile = () => {
   });
 };
 
-// PRODUCT
+// END USER
+
+// START PRODUCT
 export const getProduct = () => {
   // const queryParam = {
   //     search: param.search ?? "",
@@ -53,7 +57,6 @@ export const getProduct = () => {
 
 export const getProductById = (id) => {
   const token = localStorage.getItem("token");
-  console.log(token);
   const URL = HOST + `/product/${id}`;
   return axios.get(URL, {
     headers: {
@@ -74,8 +77,7 @@ export const createProduct = (body) => {
 
 export const editProduct = (body, id) => {
   const token = localStorage.getItem("token");
-  console.log(token);
-  const URL = HOST + `/products/edit_products/${id}`;
+  const URL = HOST + `/product/${id}`;
   return axios.patch(URL, body, {
     headers: {
       "x-access-token": token,
@@ -93,3 +95,31 @@ export const deleteProduct = (id) => {
     },
   });
 };
+
+// END PRODUCT
+
+// START SUPPLIER
+export const getSupplier = () => {
+  const URL = HOST + `/supplier?page=1&limit=10`;
+  return axios.get(URL);
+};
+export const createSupplier = (body) => {
+  const token = localStorage.getItem("token");
+  const URL = HOST + "/supplier";
+  return axios.post(URL, body, {
+    headers: {
+      "x-access-token": token,
+    },
+  });
+};
+export const editSupplier = (body, id) => {
+  const token = localStorage.getItem("token");
+  console.log(token);
+  const URL = HOST + `/supplier/${id}`;
+  return axios.patch(URL, body, {
+    headers: {
+      "x-access-token": token,
+    },
+  });
+};
+// END SUPPLIER

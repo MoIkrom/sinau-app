@@ -23,7 +23,7 @@ function Navbar() {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 1000,
         });
-        setTimeout(() => navigate("/login"), 1500);
+        setTimeout(() => navigate("/login"), 1000);
         setLoading(false);
       })
       .catch((err) => {

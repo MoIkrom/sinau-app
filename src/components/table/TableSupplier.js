@@ -3,23 +3,24 @@ import React from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import "../../css/Table.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import axios from "axios";
 
-function Tables(props) {
+function Tablesupplier(props) {
+  const navigate = useNavigate();
+  let params = useParams();
+  // const toUpdate = navigate("/update-product");
   return (
     <>
       <Table striped bordered hover>
         <tbody>
+          {params?.id}
           <tr className="font">
             <td>{props.no}</td>
-            <td>{props.nama_Barang}</td>
-            <td>{props.stock}</td>
-            <td>{props.harga}</td>
             <td>{props.nama_spl}</td>
-            <td>{props.alamat_spl}</td>
-            <td>{props.telp_spl}</td>
+            <td>{props.alamat}</td>
+            <td>{props.no_Tlp}</td>
             <td>
               <div className="d-flex flex-row gap-2 font">
                 <Button
@@ -29,10 +30,10 @@ function Tables(props) {
                   }}
                 >
                   Hapus
-                </Button>{" "}
+                </Button>
                 <Button
                   onClick={() => {
-                    props.navigates(props.modals);
+                    props.navigates(props.id);
                   }}
                 >
                   Update
@@ -46,4 +47,4 @@ function Tables(props) {
   );
 }
 
-export default Tables;
+export default Tablesupplier;

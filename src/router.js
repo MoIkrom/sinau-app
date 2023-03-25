@@ -4,94 +4,40 @@ import Login from "./pages/auth/login";
 import Register from "./pages/auth/register";
 import Dashboard from "./pages/dashboard/dashboard";
 import NewProduct from "./pages/product/newProduct";
+import UpdateProduct from "./pages/product/updateProduct";
+import NewSupplier from "./pages/supplier/newSupplier";
+import UpdateSupplier from "./pages/supplier/updateSupplier";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   {
     path: "/login",
-    element: (
-      //     <BackRoutes>
-      <Login />
-      //     </BackRoutes>
-    ),
+    element: <Login />,
   },
   {
     path: "/register",
-    element: (
-      //     <BackRoutes>
-      <Register />
-      //     </BackRoutes>
-    ),
+    element: <Register />,
   },
   {
     path: "/dashboard",
-    element: (
-      //     <PrivateRoutes allowedRoles={["user", "admin"]}>
-      <Dashboard />
-      //     </PrivateRoutes>
-    ),
+    element: <Dashboard />,
   },
-  // {
-  //   path: "/product",
-  //   element: <Product />,
-  // },
-  // {
-  //   path: "/forgot-password",
-  //   element: (
-  //     <BackRoutes>
-  //       <Forgot />
-  //     </BackRoutes>
-  //   ),
-  // },
-  // {
-  //   path: "/profile/edit-password",
-  //   element: (
-  //     <PrivateRoutes>
-  //       <EditPwd />
-  //     </PrivateRoutes>
-  //   ),
-  // },
-
-  // {
-  //   path: "/history",
-  //   element: (
-  //     <PrivateRoutes allowedRoles={["user"]}>
-  //       <History />
-  //     </PrivateRoutes>
-  //   ),
-  // },
-  // {
-  //   path: "/detail-product/:id",
-  //   element: (
-  //     <PrivateRoutes allowedRoles={["user", "admin"]}>
-  //       <Detail />
-  //     </PrivateRoutes>
-  //   ),
-  // },
-  // {
-  //   path: "/cart",
-  //   element: (
-  //     <PrivateRoutes allowedRoles={["user"]}>
-  //       <Payment />
-  //     </PrivateRoutes>
-  //   ),
-  // },
-  // {
-  //   path: "/detail-product/:id/edit-product",
-  //   element: (
-  //     <PrivateRoutes allowedRoles={["admin"]}>
-  //       <EditProduct />
-  //     </PrivateRoutes>
-  //   ),
-  // },
-   {
-     path: "/new-product",
-     element: (
-  //     <PrivateRoutes allowedRoles={["admin"]}>
-         <NewProduct />
-  //     </PrivateRoutes>
-     ),
-   },
+  {
+    path: "/new-product",
+    element: <NewProduct />,
+  },
+  {
+    path: "/update-product/:id",
+    element: <UpdateProduct />,
+  },
+  {
+    path: "/new-supplier",
+    element: <NewSupplier />,
+  },
+  {
+    path: "/update-supplier/:id",
+    element: <UpdateSupplier />,
+  },
 ]);
 
 export default router;
