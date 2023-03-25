@@ -9,3 +9,55 @@
   width: auto;
   height: 50px;
 }
+.cursor {
+  cursor: pointer;
+}
+
+/* Start Table */
+.no-t {
+  width: 35px;
+}
+.name_br-t {
+  width: 138px;
+}
+.stck-t {
+  width: 60px;
+}
+.hrg-t {
+  width: 133px;
+}
+.nm_spl-t {
+  width: 134px;
+}
+.alm_spl-t {
+  width: 135px;
+}
+.tlp_spl-t {
+  width: 137px;
+}
+/* End Table */
+
+.del {
+  width: 20px;
+  height: 20px;
+}
+
+/* start tbl spl */
+.notz {
+  width: 50px;
+}
+.namts {
+  width: 195px;
+}
+.alamts {
+  width: 195px;
+}
+.tlpts {
+  width: 194px;
+}
+
+.akzzz {
+  width: 194px;
+}
+
+/* end tbl spl */

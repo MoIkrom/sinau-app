@@ -7,7 +7,7 @@ function Footer() {
     <nav className="navbar bg-body-tertiary p-0">
       <div className={"container-fluid d-flex justify-content-center"}>
         <div className={"d-flex justify-content-center align-items-center"}>
-          <p className="navbar-brand mb-0 mx-0 font">COPYRIGHT @SINAU MARKETPLACE</p>
+          <p className="navbar-brand mb-0 mx-0 font">COPYRIGHT @MoIkrom - 2023</p>
         </div>
       </div>
     </nav>

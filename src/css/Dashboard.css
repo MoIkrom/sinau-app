@@ -4,6 +4,28 @@
   font-family: poppins;
   font-weight: 500;
 }
+.title-table {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 12px;
+}
+.heith {
+  min-height: 36.3rem;
+}
+.empty {
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 25px;
+  margin-bottom: 0px;
+  padding-top: 10rem;
+}
+.position {
+  position: absolute;
+
+  font-family: poppins;
+  font-weight: 500;
+  font-size: 12px;
+}
 .font-size {
   font-size: 13px;
 }
@@ -14,7 +36,7 @@
   gap: 50px;
 }
 .widths {
-  width: 50rem;
+  width: 53rem;
 }
 .mins {
   min-height: 500px;
@@ -33,7 +55,7 @@
   border: 1px solid rgba(61, 61, 61, 0.514);
 }
 .width-ol {
-  width: 120px;
+  width: 100px;
 }
 
 .cursor {
@@ -67,3 +89,50 @@
 .width-bt {
   width: 68px;
 }
+
+/* Start Table */
+.no {
+  width: 30px;
+}
+.name_br {
+  width: 150px;
+}
+.stck {
+  width: 60px;
+}
+.hrg {
+  width: 150px;
+}
+.nm_spl {
+  width: 140px;
+}
+.alm_spl {
+  width: 140px;
+  font-size: 10px;
+}
+.tlp_spl {
+  width: 140px;
+}
+.aksi {
+  width: 115px;
+}
+/* End Table */
+
+/* start spl tbl */
+.nos {
+  width: 50px;
+}
+.nams {
+  width: 200px;
+}
+.alms {
+  width: 194px;
+}
+.notlps {
+  width: 194px;
+}
+.aks {
+  width: 194px;
+}
+
+/* end spl tbl */

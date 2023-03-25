@@ -16,6 +16,7 @@ function NewSupplier() {
   const [nama_Supplier, setNama_Supplier] = useState("");
   const [alamat, setAlamat] = useState("");
   const [noTelp, setnoTelp] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleNamaSupplier = (e) => {
     setNama_Supplier(e.target.value);
@@ -29,6 +30,7 @@ function NewSupplier() {
 
   const handleApi = (e) => {
     e.preventDefault();
+    setLoading(true);
     createSupplier({
       nama_Supplier,
       alamat,
@@ -40,7 +42,7 @@ function NewSupplier() {
           autoClose: 1000,
         });
         setTimeout(() => navigate("/dashboard"), 2000);
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((err) => {
         toast.error("Cannot Create Supplier", {
@@ -48,7 +50,7 @@ function NewSupplier() {
           autoClose: 2000,
         });
         console.log(err);
-        // setLoading(false);
+        setLoading(false);
       });
   };
   const token = localStorage.getItem("token");
@@ -61,7 +63,7 @@ function NewSupplier() {
           <Card.Header className="mx-0 d-flex justify-content-start bgColor widths">
             <Card.Text className=" font-20">Tambah Supplier </Card.Text>
           </Card.Header>
-          <Card.Header className="mt-4 d-flex justify-content-start  ">
+          <Card.Header className="pt-4 d-flex justify-content-start  ">
             <Form>
               <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start  font-16">Nama Supplier </Form.Label>
@@ -77,14 +79,21 @@ function NewSupplier() {
               </Form.Group>
             </Form>
           </Card.Header>
-          <Card.Body className="d-flex align-items-center justify-content-between">
-            <Button className="font" onClick={() => navigate(-1)}>
-              Kembali
-            </Button>
-            <Button className="font" onClick={handleApi}>
-              Submit
-            </Button>
-          </Card.Body>
+
+          {loading ? (
+            <div className="d-flex justify-content-center align-items-center minsheight">Creating New Supplier . . .</div>
+          ) : (
+            <div>
+              <Card.Body className="d-flex align-items-center justify-content-between">
+                <Button className="font" onClick={() => navigate(-1)}>
+                  Kembali
+                </Button>
+                <Button className="font" onClick={handleApi}>
+                  Submit
+                </Button>
+              </Card.Body>
+            </div>
+          )}
         </Card>
       </div>
       <ToastContainer />

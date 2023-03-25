@@ -84,7 +84,7 @@ function Login() {
                   <img className="sizes-eyez" onClick={() => setPwdShown(!PwdShown)} src={PwdShown === false ? eyeslash : eye} atl="/" />
                 </div>
               </Form.Group>
-              {(email && password) === "" ? (
+              {/* {(email && password) === "" ? (
                 <div className="btn">
                   <Button disabled className="disable">
                     Masuk
@@ -102,7 +102,16 @@ function Login() {
                     Belum Punya Akun
                   </Form.Text>
                 </div>
-              )}
+              )} */}
+
+              <div className="btn">
+                <Button disabled={(email && password) === "" ? true : false} className={(email && password) === "" ? "disable" : "enter"} type={(email && password) === "" ? "button" : "submit"}>
+                  {loading === true ? "Loading . . . " : "Masuk"}
+                </Button>
+                <Form.Text className="text" onClick={toRegister}>
+                  Belum Punya Akun
+                </Form.Text>
+              </div>
             </Form>
           </Card.Body>
         </Card>

@@ -46,7 +46,7 @@ function Navbar() {
         {token !== null ? (
           <div className="d-flex flex-column justify-content-center align-items-center cursor" onClick={handleApi}>
             {loading ? <Loader /> : <img src={logout} alt="Logo" className={"logout"} />}
-            {loading ? <p className="mb-0 mx-0 h6 ">Loading . . .</p> : <p className="mb-0 mx-0 h6 ">LOGOUT</p>}
+            {loading ? "" : <p className="mb-0 mx-0 h6 ">LOGOUT</p>}
           </div>
         ) : (
           ""

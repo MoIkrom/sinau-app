@@ -17,8 +17,17 @@
   font-size: 16px;
   font-weight: 500;
 }
-
+.pozi {
+  position: relative;
+  top: -30px;
+}
+.jdl {
+  position: relative;
+  top: -65px;
+}
 .sizes {
-  width: 250px;
-  height: 230px;
+  width: 200px;
+  height: 200px;
+  /* position: relative;
+  top: -110px; */
 }

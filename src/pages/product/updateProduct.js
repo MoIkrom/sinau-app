@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -5,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import "../../css/NewProduct.css";
 import Navbars from "../../components/navbar/Navbar";
 import { useNavigate, Navigate } from "react-router-dom";
-import { editProduct, getProductById, getSupplier } from "../../API/API";
+import { editProduct, getProductById, allSupplier } from "../../API/API";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { TabTitle } from "../../utils/title";
@@ -13,17 +14,39 @@ import { TabTitle } from "../../utils/title";
 function NewProduct() {
   TabTitle("Update Product - Sinau App");
   const navigate = useNavigate();
-
-  // const [nama_Barang, setNama_Barang] = useState("");
-  // const [harga, setHarga] = useState("");
-  // const [stock, setStock] = useState("");
-  // const [nama_Barang, setNama_Barang] = useState("");
-  // const [harga, setHarga] = useState("");
-
   const [supplier, setSupplier] = useState("");
   const [supplier_id, setSupplier_id] = useState("");
   const [form, setForm] = useState({});
+  const [loading, setLoading] = useState(false);
 
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const url = window.location.pathname;
+  const id = url.substring(url.lastIndexOf("/") + 1);
+
+  const handleApi = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    editProduct(form, id)
+      .then(() => {
+        toast.success("Success Edit Product", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 1000,
+        });
+        setTimeout(() => navigate("/dashboard"), 2000);
+        setLoading(false);
+      })
+      .catch((err) => {
+        toast.error("Cannot Edit Product", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 1500,
+        });
+        console.log(err);
+        setLoading(false);
+      });
+  };
   const getProductDetail = () => {
     getProductById(id)
       .then((res) => {
@@ -33,61 +56,10 @@ function NewProduct() {
         console.log(err);
       });
   };
-
-  const handleChangeForm = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-  // const handleNamaBarang = (e) => {
-  //   setNama_Barang(e.target.value);
-  // };
-  // const handleHarga = (e) => {
-  //   setHarga(e.target.value);
-  //   console.log(e.target.value);
-  // };
-  // const handleStock = (e) => {
-  //   setStock(e.target.value);
-  // };
-  //   onTodoChange(value){
-  //     this.setState({
-  //          name: value
-  //     });
-  // }
-  const url = window.location.pathname;
-  const id = url.substring(url.lastIndexOf("/") + 1);
-
-  const handleApi = (e) => {
-    e.preventDefault();
-    editProduct(
-      // {
-      // nama_Barang,
-      // harga,
-      // stock,
-      // },
-      form,
-      id
-    )
-      .then(() => {
-        toast.success("Success Update Product", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1000,
-        });
-        setTimeout(() => navigate("/dashboard"), 2000);
-        // setLoading(false);
-      })
-      .catch((err) => {
-        toast.error("Cannot Edit Product", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1500,
-        });
-        console.log(err);
-        // setLoading(false);
-      });
-  };
   const getAllSupplier = () => {
-    getSupplier()
+    allSupplier()
       .then((res) => {
         setSupplier(res.data.data);
-        console.log(res.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -96,7 +68,7 @@ function NewProduct() {
   useEffect(() => {
     getProductDetail();
     getAllSupplier();
-  });
+  }, []);
 
   const token = localStorage.getItem("token");
   if (!token) return <Navigate to="/" replace={true} state={{ msg: "You have to Login first", isRedirected: true }} />;
@@ -112,15 +84,15 @@ function NewProduct() {
             <Form>
               <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Nama Barang </Form.Label>
-                <Form.Control type="text" name="nama_Barang" value={form.nama_Barang} onChange={handleChangeForm} />
+                <Form.Control type="text" name="nama_Barang" placeholder={form.nama_Barang} onChange={handleChangeForm} />
               </Form.Group>
               <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Harga Barang </Form.Label>
-                <Form.Control type="text" name="harga" value={form.harga} onChange={handleChangeForm} />
+                <Form.Control type="text" name="harga" placeholder={form.harga} onChange={handleChangeForm} />
               </Form.Group>
               <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Stock Barang </Form.Label>
-                <Form.Control type="text" name="stock" value={form.stock} onChange={handleChangeForm} />
+                <Form.Control type="text" name="stock" placeholder={form.stock} onChange={handleChangeForm} />
               </Form.Group>
               <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Supplier Barang </Form.Label>
@@ -132,7 +104,7 @@ function NewProduct() {
                     setSupplier_id(e.target.value);
                   }}
                 >
-                  <option>Silahkan Pilih Supplier</option>;
+                  <option> Silahkan Pilih Supplier</option>;
                   {supplier.length > 0
                     ? supplier.map((sup, idx) => {
                         return <option value={sup.id}>{sup.nama_Supplier}</option>;
@@ -142,10 +114,16 @@ function NewProduct() {
               </Form.Group>
             </Form>
           </Card.Header>
-          <Card.Body className="d-flex align-items-center justify-content-between">
-            <Button onClick={() => navigate(-1)}>Kembali</Button>
-            <Button onClick={handleApi}>Submit</Button>
-          </Card.Body>
+          {loading ? (
+            <div className="d-flex justify-content-center align-items-center minsheight">Edit Data Supplier . . .</div>
+          ) : (
+            <div>
+              <Card.Body className="d-flex align-items-center justify-content-between">
+                <Button onClick={() => navigate(-1)}>Kembali</Button>
+                <Button onClick={handleApi}>Submit</Button>
+              </Card.Body>
+            </div>
+          )}
         </Card>
       </div>
       <ToastContainer />

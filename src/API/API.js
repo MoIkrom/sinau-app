@@ -49,7 +49,7 @@ export const getProduct = () => {
   // const page: param.page ?? "1",
   //   limit: param.limit ?? "10",
   // };
-  const URL = HOST + `/product?page=1&limit=10`;
+  const URL = HOST + `/product?page=1&limit=5`;
   return axios.get(URL);
   //   const URL = HOST + `/products/get_products?search=${queryParam.search}&category=${queryParam.category}&order=${queryParam.order}&sort=${queryParam.sort}&page=${queryParam.page}&limit=${queryParam.limit}`;
   //   return axios.get(URL);
@@ -87,8 +87,7 @@ export const editProduct = (body, id) => {
 
 export const deleteProduct = (id) => {
   const token = localStorage.getItem("token");
-  console.log(token);
-  const URL = HOST + `/products/${id}`;
+  const URL = HOST + `/product/${id}`;
   return axios.delete(URL, {
     headers: {
       "x-access-token": token,
@@ -99,8 +98,12 @@ export const deleteProduct = (id) => {
 // END PRODUCT
 
 // START SUPPLIER
+export const allSupplier = () => {
+  const URL = HOST + `/supplier/all-supplier`;
+  return axios.get(URL);
+};
 export const getSupplier = () => {
-  const URL = HOST + `/supplier?page=1&limit=10`;
+  const URL = HOST + `/supplier?page=1&limit=5`;
   return axios.get(URL);
 };
 export const createSupplier = (body) => {
@@ -117,6 +120,24 @@ export const editSupplier = (body, id) => {
   console.log(token);
   const URL = HOST + `/supplier/${id}`;
   return axios.patch(URL, body, {
+    headers: {
+      "x-access-token": token,
+    },
+  });
+};
+export const getSupplierById = (id) => {
+  const token = localStorage.getItem("token");
+  const URL = HOST + `/supplier/${id}`;
+  return axios.get(URL, {
+    headers: {
+      "x-access-token": token,
+    },
+  });
+};
+export const deleteSupplier = (id) => {
+  const token = localStorage.getItem("token");
+  const URL = HOST + `/supplier/${id}`;
+  return axios.delete(URL, {
     headers: {
       "x-access-token": token,
     },

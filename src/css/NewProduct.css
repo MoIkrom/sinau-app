@@ -16,3 +16,20 @@
 .width-dd {
   width: 200px !important;
 }
+.selectz {
+  overflow-y: scroll;
+  height: 80px;
+}
+.minsheight {
+  min-height: 70px;
+  font-size: 20px;
+  font-family: poppins;
+  font-weight: 500;
+}
+
+.btn-back {
+  border: 0px;
+  font-size: 14px;
+  font-family: poppins;
+  font-weight: 400;
+}

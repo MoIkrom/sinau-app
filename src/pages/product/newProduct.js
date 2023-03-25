@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import "../../css/NewProduct.css";
 import Navbars from "../../components/navbar/Navbar";
 import { useNavigate, Navigate } from "react-router-dom";
-import { createProduct, getSupplier } from "../../API/API";
+import { createProduct, allSupplier } from "../../API/API";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { TabTitle } from "../../utils/title";
@@ -21,6 +21,7 @@ function NewProduct() {
   const [supplier_id, setSupplier_id] = useState("");
   const [supplier, setSupplier] = useState("");
   const [type, setType] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleNamaBArang = (e) => {
     setNama_Barang(e.target.value);
@@ -34,6 +35,7 @@ function NewProduct() {
 
   const handleApi = (e) => {
     e.preventDefault();
+    setLoading(true);
     createProduct({
       nama_Barang,
       harga,
@@ -46,23 +48,22 @@ function NewProduct() {
           autoClose: 2000,
         });
         setTimeout(() => navigate("/dashboard"), 3000);
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((err) => {
-        toast.error("Cannot Create Product ", {
+        toast.error("Error, Please select Supplier ", {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 2000,
         });
         console.log(err);
-        // setLoading(false);
+        setLoading(false);
       });
   };
 
   const getAllSupplier = () => {
-    getSupplier()
+    allSupplier()
       .then((res) => {
         setSupplier(res.data.data);
-        console.log(res.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -117,10 +118,17 @@ function NewProduct() {
               </Form.Group>
             </Form>
           </Card.Header>
-          <Card.Body className="d-flex align-items-center justify-content-between">
-            <Button onClick={() => navigate(-1)}>Kembali</Button>
-            <Button onClick={handleApi}>Submit</Button>
-          </Card.Body>
+
+          {loading ? (
+            <div className="d-flex justify-content-center align-items-center minsheight">Creating New Product . . .</div>
+          ) : (
+            <div>
+              <Card.Body className="d-flex align-items-center justify-content-between">
+                <Button onClick={() => navigate(-1)}>Kembali</Button>
+                <Button onClick={handleApi}>Submit</Button>
+              </Card.Body>
+            </div>
+          )}
         </Card>
       </div>
       <ToastContainer />
