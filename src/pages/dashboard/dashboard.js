@@ -297,7 +297,9 @@ function Dashboard() {
                             nama_Barang={products.nama_Barang}
                             harga={`${"Rp"} ${costing(products.harga)}`}
                             stock={products.stock}
-                            nama_spl={products[0]}
+                            nama_spl={products.supplier.nama_Supplier}
+                            alamat_spl={products.supplier.alamat}
+                            telp_spl={products.supplier.noTelp}
                             remove={() => {
                               setIdProduct(products.id);
                             }}
