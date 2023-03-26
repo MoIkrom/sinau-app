@@ -24,7 +24,7 @@ function HomePage() {
           </div>
           <div className="container justify-content-center align-items-center">
             <h3>
-              Aplikasi ini dibuat menggunakan Bahasa Pemrograman Javascript , dimana dari sisi Front-End menggunakan Framwork React Js , dan Bootstrap . Sedangkan dari sisi Back-End menggunakan Node.Js dan Express.Js . Database yang
+              Aplikasi ini dibuat menggunakan Bahasa Pemrograman Javascript , dimana dari sisi Front-End menggunakan Framework React Js , dan Bootstrap . Sedangkan dari sisi Back-End menggunakan Node.Js dan Express.Js . Database yang
               digunakan adalah Supabase
             </h3>
           </div>
