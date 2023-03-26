@@ -249,7 +249,7 @@ function Dashboard() {
                         return (
                           <Tablesupplier
                             key={suppliers.id}
-                            no={idx + 1}
+                            no={idx + 1 + pageSp * 5 - 5}
                             nama_spl={suppliers.nama_Supplier}
                             alamat={suppliers.alamat}
                             no_Tlp={suppliers.noTelp}
@@ -293,7 +293,7 @@ function Dashboard() {
                         return (
                           <Tables
                             key={products.id}
-                            no={idx + 1}
+                            no={idx + 1 + pagesB * 5 - 5}
                             nama_Barang={products.nama_Barang}
                             harga={`${"Rp"} ${costing(products.harga)}`}
                             stock={products.stock}
