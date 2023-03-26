@@ -1,0 +1,26 @@
+1. Framework CSS apa yang pernah Anda gunakan?
+
+Jawaban : Bootstrap
+
+=================================================
+
+2. Sebutkan framework javascript yang anda kuasai.
+
+Jawaban : Node Js , Express Js , React Js , Next Js , React Native
+
+=================================================
+
+3. Mana yang menurut anda lebih bagus untuk Http Call di javascript, Fetch API , Jquery atau Axios ?
+
+Jawaban : Menurut Saya adalah Axios
+
+=================================================
+
+4. Sebutkan dan jelaskan beberapa request method HTTP.
+
+Jawaban :
+a. POST : Digunakan untuk membuat data baru.
+b. GET : Digunakan untuk mengambil data.
+c. PUT : Digunakan untuk mengupdate keseluruhan data.
+d. PATCH : Digunakan untuk mengupdate sebagian data.
+d. DELETE : Digunakan untuk menghapus data.
