@@ -214,160 +214,156 @@ function Dashboard() {
           </Card>
         </div>
 
-        {loading ? (
-          ""
-        ) : (
-          <div>
-            <Card className="widths ">
-              <Card.Header className="mx-0 d-flex justify-content-start bgColor widths ">
-                <Card.Text className="font f-18">Dashboard </Card.Text>
-              </Card.Header>
-              <div className="heith">
-                <Card.Body className="d-flex align-items-center justify-content-between ">
-                  <Card.Text className="font f-22">{click === true ? "Supplier" : "Barang"} </Card.Text>
-                  <Button className="font" onClick={click === true ? toNewSupplier : toNewProduct}>
-                    {click === true ? " Tambah Supplier" : " Tambah Barang"}
-                  </Button>
-                </Card.Body>
+        <div>
+          <Card className="widths ">
+            <Card.Header className="mx-0 d-flex justify-content-start bgColor widths ">
+              <Card.Text className="font f-18">Dashboard </Card.Text>
+            </Card.Header>
+            <div className="heith">
+              <Card.Body className="d-flex align-items-center justify-content-between ">
+                <Card.Text className="font f-22">{click === true ? "Supplier" : "Barang"} </Card.Text>
+                <Button className="font" onClick={click === true ? toNewSupplier : toNewProduct}>
+                  {click === true ? " Tambah Supplier" : " Tambah Barang"}
+                </Button>
+              </Card.Body>
 
-                {click === true ? (
-                  // start Table Supplier
-                  <div className="container">
-                    <Table striped bordered hover>
-                      <thead>
-                        <tr className="font">
-                          <th className="nos">No</th>
-                          <th className="nams">Nama Supplier</th>
-                          <th className="alms">Alamat </th>
-                          <th className="notlps">No Telepon</th>
-                          <th className="d-flex align-items-center justify-content-center aks">Aksi</th>
-                        </tr>
-                      </thead>
-                    </Table>
-                    {supplierz.length > 0 ? (
-                      supplierz.map((suppliers, idx) => {
-                        return (
-                          <Tablesupplier
-                            key={suppliers.id}
-                            no={idx + 1 + pageSp * 5 - 5}
-                            nama_spl={suppliers.nama_Supplier}
-                            alamat={suppliers.alamat}
-                            no_Tlp={suppliers.noTelp}
-                            id={suppliers.id}
-                            modal={handleShowModal}
-                            remove={() => {
-                              setIdSupplier(suppliers.id);
-                            }}
-                            navigates={() => navigate(`/update-supplier/${suppliers.id}`)}
-                          />
-                        );
-                      })
-                    ) : (
-                      <div className="d-flex justify-content-center align-items-center">
-                        <p className="empty">{loading === true ? "" : "Belum Ada Supplier yang di Input"}</p>
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  // End Table Supplier
+              {click === true ? (
+                // start Table Supplier
+                <div className="container">
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr className="font">
+                        <th className="nos">No</th>
+                        <th className="nams">Nama Supplier</th>
+                        <th className="alms">Alamat </th>
+                        <th className="notlps">No Telepon</th>
+                        <th className="d-flex align-items-center justify-content-center aks">Aksi</th>
+                      </tr>
+                    </thead>
+                  </Table>
+                  {supplierz.length > 0 ? (
+                    supplierz.map((suppliers, idx) => {
+                      return (
+                        <Tablesupplier
+                          key={suppliers.id}
+                          no={idx + 1 + pageSp * 5 - 5}
+                          nama_spl={suppliers.nama_Supplier}
+                          alamat={suppliers.alamat}
+                          no_Tlp={suppliers.noTelp}
+                          id={suppliers.id}
+                          modal={handleShowModal}
+                          remove={() => {
+                            setIdSupplier(suppliers.id);
+                          }}
+                          navigates={() => navigate(`/update-supplier/${suppliers.id}`)}
+                        />
+                      );
+                    })
+                  ) : (
+                    <div className="d-flex justify-content-center align-items-center">
+                      <p className="empty">{loading === true ? "" : "Belum Ada Supplier yang di Input"}</p>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // End Table Supplier
 
-                  // Start Table Barang
+                // Start Table Barang
 
-                  <div className="container">
-                    <Table striped bordered hover>
-                      <thead>
-                        <tr className="title-table">
-                          <th className="no">No</th>
-                          <th className="name_br">Nama Barang</th>
-                          <th className="stck">Stock </th>
-                          <th className="hrg">Harga</th>
-                          <th className="nm_spl">Nama Supplier</th>
-                          <th className="alm_spl">Alamat Supplier</th>
-                          <th className="tlp_spl">No Telp Supplier</th>
-                          <th className="d-flex align-items-center justify-content-center aksi">Aksi</th>
-                        </tr>
-                      </thead>
-                    </Table>
-                    {product.length > 0 ? (
-                      product.map((products, idx) => {
-                        return (
-                          <Tables
-                            key={products.id}
-                            no={idx + 1 + pagesB * 5 - 5}
-                            nama_Barang={products.nama_Barang}
-                            harga={`${"Rp"} ${costing(products.harga)}`}
-                            stock={products.stock}
-                            nama_spl={products.supplier.nama_Supplier}
-                            alamat_spl={products.supplier.alamat}
-                            telp_spl={products.supplier.noTelp}
-                            remove={() => {
-                              setIdProduct(products.id);
-                            }}
-                            id={products.id}
-                            modal={handleShowModal}
-                            navigates={() => {
-                              navigate(`/update-product/${products.id}`);
-                            }}
-                          />
-                        );
-                      })
-                    ) : (
-                      <div className="d-flex justify-content-center align-items-center">
-                        <p className="empty">Belum Ada Barang yang di Input</p>
-                      </div>
-                    )}
-                  </div>
+                <div className="container">
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr className="title-table">
+                        <th className="no">No</th>
+                        <th className="name_br">Nama Barang</th>
+                        <th className="stck">Stock </th>
+                        <th className="hrg">Harga</th>
+                        <th className="nm_spl">Nama Supplier</th>
+                        <th className="alm_spl">Alamat Supplier</th>
+                        <th className="tlp_spl">No Telp Supplier</th>
+                        <th className="d-flex align-items-center justify-content-center aksi">Aksi</th>
+                      </tr>
+                    </thead>
+                  </Table>
+                  {product.length > 0 ? (
+                    product.map((products, idx) => {
+                      return (
+                        <Tables
+                          key={products.id}
+                          no={idx + 1 + pagesB * 5 - 5}
+                          nama_Barang={products.nama_Barang}
+                          harga={`${"Rp"} ${costing(products.harga)}`}
+                          stock={products.stock}
+                          nama_spl={products.supplier.nama_Supplier}
+                          alamat_spl={products.supplier.alamat}
+                          telp_spl={products.supplier.noTelp}
+                          remove={() => {
+                            setIdProduct(products.id);
+                          }}
+                          id={products.id}
+                          modal={handleShowModal}
+                          navigates={() => {
+                            navigate(`/update-product/${products.id}`);
+                          }}
+                        />
+                      );
+                    })
+                  ) : (
+                    <div className="d-flex justify-content-center align-items-center">
+                      <p className="empty">Belum Ada Barang yang di Input</p>
+                    </div>
+                  )}
+                </div>
 
-                  // End Table Barang
-                )}
-                {product.length < 1 ? (
-                  ""
-                ) : click === true ? (
-                  <>
-                    <Pagination className="d-flex justify-content-center align-items-center gap-3 ">
-                      <Pagination.Prev
-                        onClick={() => {
-                          setPageSp(pageSp - 1);
-                        }}
-                        disabled={pageSp === 1 ? true : false}
-                      />
-                      <div className="d-flex justify-content-center align-items-center ">
-                        Page {pageSp} of {totalpageSp}
-                      </div>
-                      <Pagination.Next
-                        onClick={() => {
-                          setPageSp(pageSp + 1);
-                        }}
-                        disabled={pageSp >= totalpageSp ? true : false}
-                      />
-                    </Pagination>
-                  </>
-                ) : (
-                  <>
-                    <Pagination className="d-flex justify-content-center align-items-center gap-3 ">
-                      <Pagination.Prev
-                        onClick={() => {
-                          setPagesB(pagesB - 1);
-                        }}
-                        disabled={pagesB === 1 ? true : false}
-                      />
-                      <div className="d-flex justify-content-center align-items-center ">
-                        Page {pagesB} of {totalpagesB}
-                      </div>
-                      <Pagination.Next
-                        onClick={() => {
-                          setPagesB(pagesB + 1);
-                          console.log(pagesB);
-                        }}
-                        disabled={pagesB >= totalpagesB ? true : false}
-                      />
-                    </Pagination>
-                  </>
-                )}
-              </div>
-            </Card>
-          </div>
-        )}
+                // End Table Barang
+              )}
+              {product.length < 1 ? (
+                ""
+              ) : click === true ? (
+                <>
+                  <Pagination className="d-flex justify-content-center align-items-center gap-3 ">
+                    <Pagination.Prev
+                      onClick={() => {
+                        setPageSp(pageSp - 1);
+                      }}
+                      disabled={pageSp === 1 ? true : false}
+                    />
+                    <div className="d-flex justify-content-center align-items-center ">
+                      Page {pageSp} of {totalpageSp}
+                    </div>
+                    <Pagination.Next
+                      onClick={() => {
+                        setPageSp(pageSp + 1);
+                      }}
+                      disabled={pageSp >= totalpageSp ? true : false}
+                    />
+                  </Pagination>
+                </>
+              ) : (
+                <>
+                  <Pagination className="d-flex justify-content-center align-items-center gap-3 ">
+                    <Pagination.Prev
+                      onClick={() => {
+                        setPagesB(pagesB - 1);
+                      }}
+                      disabled={pagesB === 1 ? true : false}
+                    />
+                    <div className="d-flex justify-content-center align-items-center ">
+                      Page {pagesB} of {totalpagesB}
+                    </div>
+                    <Pagination.Next
+                      onClick={() => {
+                        setPagesB(pagesB + 1);
+                        console.log(pagesB);
+                      }}
+                      disabled={pagesB >= totalpagesB ? true : false}
+                    />
+                  </Pagination>
+                </>
+              )}
+            </div>
+          </Card>
+        </div>
       </div>
       <Modal show={dropmodal === true ? showModal === false : showModal === true} onHide={handleCloseModal} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
