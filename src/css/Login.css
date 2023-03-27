@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,900&display=swap");
-.div-cont-login {
+/* .div-cont-login {
   display: flex;
   flex-direction: row;
   justify-content: center !important;
   height: 350px;
   gap: 50px;
-}
+} */
 .title {
   width: 500px;
   height: 415px;
@@ -55,4 +55,16 @@
   font-family: poppins;
   font-weight: 500;
   font-size: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .logos {
+    width: 300px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  .logos {
+    width: 227px;
+    height: 168px;
+  }
 }

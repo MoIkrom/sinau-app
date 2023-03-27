@@ -80,25 +80,25 @@ function NewProduct() {
     <>
       <Navbars />
       <div className="d-flex justify-content-center align-items-center mt-5">
-        <Card className="widths">
-          <Card.Header className="mx-0 d-flex justify-content-start bgColor widths">
+        <Card>
+          <Card.Header className="title-barang mx-0 d-flex justify-content-center justify-content-md-start justify-content-lg-start bgColor ">
             <Card.Text>Tambah Barang </Card.Text>
           </Card.Header>
-          <Card.Header className="mx-0 d-flex justify-content-start  ">
-            <Form>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+          <Card.Header className="mx-0 d-flex justify-content-start   justify-content-md-center">
+            <Form className="lebar">
+              <Form.Group className="grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Nama Barang </Form.Label>
                 <Form.Control type="text" placeholder="Masukkan Nama Barang" onChange={handleNamaBArang} />
               </Form.Group>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+              <Form.Group className="grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Harga Barang </Form.Label>
                 <Form.Control type="text" placeholder="Masukkan Harga Barang" onChange={handleHarga} />
               </Form.Group>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+              <Form.Group className="grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Stock Barang </Form.Label>
                 <Form.Control type="text" placeholder="Masukkan Jumlah Stock Barang" onChange={handleStock} />
               </Form.Group>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+              <Form.Group className="grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start">Supplier Barang </Form.Label>
                 <Form.Select
                   aria-label="Silahkan Pilih Supplier"

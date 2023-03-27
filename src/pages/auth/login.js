@@ -65,36 +65,41 @@ function Login() {
   return (
     <>
       <Navbar />
-      <div className="div-cont-login mt-5">
-        <img src={logo} alt="" />
-        <Card className="title">
-          <Card.Header className="d-flex justify-content-center ">Login</Card.Header>
-          <Card.Body>
-            <Form onSubmit={handleApi}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter Your Email" onChange={handleEmail} />
-              </Form.Group>
+      <div className="container row mx-md-auto my-lg-5 pb-5 m-0 ">
+        <div className="d-flex justify-content-center align-items-center col-sm-6 col-md-12  col-lg-6">
+          <img className="logos" src={logo} alt="" />
+        </div>
+        <div className="d-flex justify-content-center align-items-center col-sm-6 col-md-12 col-lg-6">
+          <Card className="p-0 col-12">
+            <Card.Header className="d-flex justify-content-center ">Login</Card.Header>
+            <Card.Body>
+              <Form onSubmit={handleApi}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="Enter Your Email" onChange={handleEmail} />
+                </Form.Group>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type={PwdShown === false ? "password" : "text"} placeholder="Enter Password" onChange={handlePassword} />
-                <div className="d-flex justify-content-end gap-2 align-items-center mt-2 me-2">
-                  <p className="m-0 fontsz"> Show Password</p>
-                  <img className="sizes-eyez" onClick={() => setPwdShown(!PwdShown)} src={PwdShown === false ? eyeslash : eye} atl="/" />
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type={PwdShown === false ? "password" : "text"} placeholder="Enter Password" onChange={handlePassword} />
+                  <div className="d-flex justify-content-end gap-2 align-items-center mt-2 me-2">
+                    <p className="m-0 fontsz"> Show Password</p>
+                    <img className="sizes-eyez" onClick={() => setPwdShown(!PwdShown)} src={PwdShown === false ? eyeslash : eye} atl="/" />
+                  </div>
+                </Form.Group>
+                <div className="btn">
+                  <Button disabled={(email && password) === "" ? true : false} className={(email && password) === "" ? "disable" : "enter"} type={(email && password) === "" ? "button" : "submit"}>
+                    {loading === true ? "Loading . . . " : "Masuk"}
+                  </Button>
+                  <Form.Text className="text" onClick={toRegister}>
+                    Belum Punya Akun
+                  </Form.Text>
                 </div>
-              </Form.Group>
-              <div className="btn">
-                <Button disabled={(email && password) === "" ? true : false} className={(email && password) === "" ? "disable" : "enter"} type={(email && password) === "" ? "button" : "submit"}>
-                  {loading === true ? "Loading . . . " : "Masuk"}
-                </Button>
-                <Form.Text className="text" onClick={toRegister}>
-                  Belum Punya Akun
-                </Form.Text>
-              </div>
-            </Form>
-          </Card.Body>
-        </Card>
+              </Form>
+            </Card.Body>
+          </Card>
+        </div>
+
         <ToastContainer />
       </div>
     </>

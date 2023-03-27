@@ -73,60 +73,64 @@ function Register() {
   return (
     <>
       <Navbars />
-      <div className="div-cont mt-5">
-        <img src={logo} alt="" />
-        <Card className="titlez">
-          <Card.Header className="d-flex justify-content-center ">Register</Card.Header>
-          <Card.Body>
-            <Form onSubmit={handleApi}>
-              <Form.Group className="mb-1" controlId="formBasicEmail">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter Username" onChange={handleUserName} />
-              </Form.Group>
-              <Form.Group className="mb-1" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter Your Email" onChange={handleEmail} />
-              </Form.Group>
+      <div className="container row mx-md-auto my-lg-5 pb-5 m-0">
+        <div className="d-flex justify-content-center align-items-center col-sm-6 col-md-12  col-lg-6">
+          <img className="logos" src={logo} alt="" />
+        </div>
+        <div className="d-flex justify-content-center align-items-center col-sm-6 col-md-12 col-lg-6">
+          <Card className="p-0 col-12">
+            <Card.Header className="d-flex justify-content-center ">Register</Card.Header>
+            <Card.Body>
+              <Form onSubmit={handleApi}>
+                <Form.Group className="mb-4" controlId="formBasicEmail">
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Username" onChange={handleUserName} />
+                </Form.Group>
+                <Form.Group className="mb-4" controlId="formBasicEmail">
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="Enter Your Email" onChange={handleEmail} />
+                </Form.Group>
 
-              <Form.Group className="mb-1" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type={PwdShown === false ? "password" : "text"} placeholder="Enter Password" onChange={handlePassword} />{" "}
-                <div className="d-flex justify-content-end gap-2 align-items-center me-2 mt-2 ">
-                  <p className="m-0 fontsz"> Show Password</p>
-                  <img className="sizes-eyez" onClick={() => setPwdShown(!PwdShown)} src={PwdShown === false ? eyeslash : eye} atl="/" />
-                </div>
-              </Form.Group>
-              <Form.Group className="mb-1" controlId="formBasicPassword">
-                <Form.Label>Confirm Password</Form.Label>
-                <Form.Control type={PwdShown2 === false ? "password" : "text"} placeholder="Enter Confirm Password" onChange={handleConfirmPassword} />{" "}
-                <div className="d-flex justify-content-end gap-2 align-items-center mt-2 me-2 ">
-                  <p className="m-0 fontsz"> Show Confirm Password</p>
-                  <img className="sizes-eyez" onClick={() => setPwdShown2(!PwdShown2)} src={PwdShown2 === false ? eyeslash : eye} atl="" />
-                </div>
-              </Form.Group>
-              {(username && email && password && confirmPassword) === "" ? (
-                <div className="btn">
-                  <Button disabled className="disable">
-                    {loading === true ? "Loading . . . " : "Daftar"}
-                  </Button>
-                  <Form.Text className="text" onClick={toLogin}>
-                    Sudah Punya Akun
-                  </Form.Text>
-                </div>
-              ) : (
-                <div className="btn">
-                  <Button className="enter" variant="primary" type="submit">
-                    {loading === true ? "Loading . . . " : "Daftar"}
-                  </Button>
-                  <Form.Text className="text" onClick={toLogin}>
-                    Sudah Punya Akun
-                  </Form.Text>
-                </div>
-              )}
-            </Form>
-          </Card.Body>
-        </Card>
-        <ToastContainer />
+                <Form.Group className="mb-4" controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type={PwdShown === false ? "password" : "text"} placeholder="Enter Password" onChange={handlePassword} />{" "}
+                  <div className="d-flex justify-content-end gap-2 align-items-center me-2 mt-2 ">
+                    <p className="m-0 fontsz"> Show Password</p>
+                    <img className="sizes-eyez" onClick={() => setPwdShown(!PwdShown)} src={PwdShown === false ? eyeslash : eye} atl="/" />
+                  </div>
+                </Form.Group>
+                <Form.Group className="mb-4" controlId="formBasicPassword">
+                  <Form.Label>Confirm Password</Form.Label>
+                  <Form.Control type={PwdShown2 === false ? "password" : "text"} placeholder="Enter Confirm Password" onChange={handleConfirmPassword} />{" "}
+                  <div className="d-flex justify-content-end gap-2 align-items-center mt-2 me-2 ">
+                    <p className="m-0 fontsz"> Show Confirm Password</p>
+                    <img className="sizes-eyez" onClick={() => setPwdShown2(!PwdShown2)} src={PwdShown2 === false ? eyeslash : eye} atl="" />
+                  </div>
+                </Form.Group>
+                {(username && email && password && confirmPassword) === "" ? (
+                  <div className="d-flex flex-column justify-content-center align-items-center gap-2 mt-5">
+                    <Button disabled className="disable">
+                      {loading === true ? "Loading . . . " : "Daftar"}
+                    </Button>
+                    <Form.Text className="text" onClick={toLogin}>
+                      Sudah Punya Akun
+                    </Form.Text>
+                  </div>
+                ) : (
+                  <div className="btn">
+                    <Button className="enter" variant="primary" type="submit">
+                      {loading === true ? "Loading . . . " : "Daftar"}
+                    </Button>
+                    <Form.Text className="text" onClick={toLogin}>
+                      Sudah Punya Akun
+                    </Form.Text>
+                  </div>
+                )}
+              </Form>
+            </Card.Body>
+          </Card>
+          <ToastContainer />
+        </div>
       </div>
     </>
   );

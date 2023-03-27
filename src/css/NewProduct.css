@@ -5,13 +5,15 @@
   font-family: poppins;
   font-weight: 500;
 }
+.font-15 {
+  font-size: 15.3px;
+  font-family: poppins;
+  font-weight: 500;
+}
 .font-16 {
   font-size: 16px;
   font-family: poppins;
   font-weight: 500;
-}
-.text-title {
-  width: 300px;
 }
 .width-dd {
   width: 200px !important;
@@ -32,4 +34,16 @@
   font-size: 14px;
   font-family: poppins;
   font-weight: 400;
+}
+
+@media only screen and (min-width: 768px) {
+  .width {
+    width: 700px;
+  }
+  .lebar {
+    width: 700px;
+  }
+  .text-title {
+    width: 200px;
+  }
 }

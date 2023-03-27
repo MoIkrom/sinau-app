@@ -61,3 +61,42 @@
 }
 
 /* end tbl spl */
+@media only screen and (max-width: 375px) {
+  .ft {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .nonez {
+    display: none;
+  }
+  .del {
+    width: 15px;
+    height: 15px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .hide {
+    display: none;
+  }
+  .del {
+    width: 15px;
+    height: 15px;
+  }
+  .resp {
+    margin-bottom: 50px !important;
+  }
+}
+@media only screen and (min-width: 800px) and (max-width: 1024px) {
+  .resp {
+    margin-left: 50px !important;
+    margin-bottom: 50px !important;
+  }
+  .del {
+    width: 15px;
+    height: 15px;
+  }
+  .hide {
+    display: none;
+  }
+}

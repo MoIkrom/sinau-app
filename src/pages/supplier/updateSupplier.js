@@ -66,21 +66,21 @@ function UpdateSupplier({ route }) {
     <>
       <Navbars />
       <div className="d-flex justify-content-center align-items-center mt-5">
-        <Card className="widths">
-          <Card.Header className="mx-0  d-flex justify-content-start bgColor widths">
+        <Card>
+          <Card.Header className="title-barang mx-0 d-flex justify-content-center justify-content-md-start justify-content-lg-start bgColor ">
             <Card.Text className="font-20 ps-4 ">Update Supplier </Card.Text>
           </Card.Header>
-          <Card.Header className="mx-0 d-flex justify-content-start  ">
-            <Form className="mt-3">
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+          <Card.Header className="mx-0 d-flex justify-content-start     justify-content-md-center">
+            <Form className="lebar">
+              <Form.Group className="grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title ps-4 d-flex align-items-center justify-content-start font-16">Nama Supplier </Form.Label>
                 <Form.Control type="text" placeholder={form.nama_Supplier} name="nama_Supplier" onChange={handleChangeForm} />
               </Form.Group>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
-                <Form.Label className="text-title ps-4 d-flex align-items-center justify-content-start font-16">Alamat Supplier </Form.Label>
+              <Form.Group className="grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
+                <Form.Label className="text-title ps-4 d-flex align-items-center justify-content-start font-15">Alamat Supplier </Form.Label>
                 <Form.Control type="text" name="alamat" placeholder={form.alamat} onChange={handleChangeForm} />
               </Form.Group>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+              <Form.Group className="grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title ps-4 d-flex align-items-center justify-content-start font-16">Nomor Telepon </Form.Label>
                 <Form.Control type="text" name="noTelp" placeholder={form.noTelp} className="font-16" onChange={handleChangeForm} />
               </Form.Group>

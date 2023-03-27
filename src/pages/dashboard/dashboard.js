@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Navbars from "../../components/navbar/Navbar";
+import Navbars from "../../components/navbar/Navbar_Dashboard";
 import Table from "react-bootstrap/Table";
 import Footer from "../../components/footer/Footer";
 import profile from "../../assets/profile.png";
@@ -159,64 +159,70 @@ function Dashboard() {
   return (
     <>
       <Navbars />
-      <div className="container d-flex flex-row gap-5 pt-5 mb-5">
-        <div className="d-flex flex-column gap-5">
-          <Card style={{ width: "18rem" }}>
-            <Card.Header className="mx-0 d-flex justify-content-center" style={{ width: "18rem" }}>
-              <Card.Img className="img-profile mt-3 " variant="top" src={profile} />
-            </Card.Header>
-            <Card.Body className="d-flex justify-content-center bgColor">
-              <Card.Text className="font">{username} </Card.Text>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "18rem" }}>
-            <Card.Header className="mx-0 d-flex justify-content-center bgColor" style={{ width: "18rem" }}>
-              <Card.Text className="d-flex justify-content-center font ">Menu </Card.Text>
-            </Card.Header>
-            <div
-              onClick={() => {
-                setClick(false);
-                console.log(click);
-              }}
-              className="cursor"
-            >
-              <Card.Body className={click === false ? "p-0 click-bg" : "cursor"}>
-                <Card.Text className="font">Barang </Card.Text>
+      <div className=" container row d-flex flex-row flex-lg-row justify-content-center resp align-items-center gap-5 gap-lg-0 gap-md-5 pt-5 my-md-auto m-0 mb-5">
+        <div className="left d-md-flex flex-md-row justify-content-center align-items-center col-12 col-lg-4 d-flex flex-md-row flex-column flex-lg-column gap-5 ">
+          <div className="d-md-flex flex-md-column gap-md-5 justify-content-center align-items-center ">
+            <Card className="col-md-6" style={{ width: "18rem" }}>
+              <Card.Header className="mx-0 d-flex justify-content-center" style={{ width: "18rem" }}>
+                <Card.Img className="img-profile mt-3 " variant="top" src={profile} />
+              </Card.Header>
+              <Card.Body className="d-flex justify-content-center bgColor">
+                <Card.Text className="font">{username} </Card.Text>
               </Card.Body>
-            </div>
-            <div
-              className="cursor"
-              onClick={() => {
-                setClick(true);
-                console.log(click);
-              }}
-            >
-              <Card.Body className={click === true ? "p-0 click-bg" : "cursor"}>
-                <Card.Text className="font">Supplier </Card.Text>
+            </Card>
+
+            <Card className="col-md-12" style={{ width: "18rem" }}>
+              <Card.Header className="mx-0 d-flex justify-content-center bgColor" style={{ width: "18rem" }}>
+                <Card.Text className="d-flex justify-content-center font ">Menu </Card.Text>
+              </Card.Header>
+              <div
+                onClick={() => {
+                  setClick(false);
+                  console.log(click);
+                }}
+                className="cursor"
+              >
+                <Card.Body className={click === false ? "p-0 click-bg" : "cursor"}>
+                  <Card.Text className="font">Barang </Card.Text>
+                </Card.Body>
+              </div>
+              <div
+                className="cursor"
+                onClick={() => {
+                  setClick(true);
+                  console.log(click);
+                }}
+              >
+                <Card.Body className={click === true ? "p-0 click-bg" : "cursor"}>
+                  <Card.Text className="font">Supplier </Card.Text>
+                </Card.Body>
+              </div>
+            </Card>
+          </div>
+          <div className="justify-content-start">
+            {" "}
+            <Card className="col-md-6" style={{ width: "18rem", height: "9.7rem" }}>
+              <Card.Header className="mx-0 d-flex align-items-center justify-content-center gap-1 bgColor" style={{ width: "18rem" }}>
+                <Card.Text className="d-flex justify-content-center mb-0 font">Online</Card.Text>
+                <canvas className="canvas"></canvas>
+              </Card.Header>
+              <Card.Body className="d-flex pb-0 flex-row justify-content-start  ">
+                <Card.Text className="width-ol font">Hari Online</Card.Text>
+                <Card.Text className="font">
+                  {": " + day + " ,"} {date}
+                </Card.Text>
               </Card.Body>
-            </div>
-          </Card>
-          <Card style={{ width: "18rem", height: "9.7rem" }}>
-            <Card.Header className="mx-0 d-flex align-items-center justify-content-center gap-1 bgColor" style={{ width: "18rem" }}>
-              <Card.Text className="d-flex justify-content-center mb-0 font">Online</Card.Text>
-              <canvas className="canvas"></canvas>
-            </Card.Header>
-            <Card.Body className="d-flex pb-0 flex-row justify-content-start  ">
-              <Card.Text className="width-ol font">Hari Online</Card.Text>
-              <Card.Text className="font">
-                {": " + day + " ,"} {date}
-              </Card.Text>
-            </Card.Body>
-            <Card.Body className="d-flex py-0 flex-row justify-content-start  ">
-              <Card.Text className="width-ol font">Waktu Online </Card.Text>
-              <Card.Text className="font"> {": " + time + " WIB"}</Card.Text>
-            </Card.Body>
-          </Card>
+              <Card.Body className="d-flex py-0 flex-row justify-content-start  ">
+                <Card.Text className="width-ol font">Waktu Online </Card.Text>
+                <Card.Text className="font"> {": " + time + " WIB"}</Card.Text>
+              </Card.Body>
+            </Card>
+          </div>
         </div>
 
-        <div>
-          <Card className="widths ">
-            <Card.Header className="mx-0 d-flex justify-content-start bgColor widths ">
+        <div className=" d-flex col-12 col-md-12 col-lg-8 ps-md-4 ">
+          <Card className="col-12 ">
+            <Card.Header className="col-12 mx-0 d-flex justify-content-start bgColor ">
               <Card.Text className="font f-18">Dashboard </Card.Text>
             </Card.Header>
             <div className="heith">
@@ -272,16 +278,16 @@ function Dashboard() {
 
                 <div className="container">
                   <Table striped bordered hover>
-                    <thead>
-                      <tr className="title-table">
-                        <th className="no">No</th>
-                        <th className="name_br">Nama Barang</th>
-                        <th className="stck">Stock </th>
-                        <th className="hrg">Harga</th>
-                        <th className="nm_spl">Nama Supplier</th>
-                        <th className="alm_spl">Alamat Supplier</th>
-                        <th className="tlp_spl">No Telp Supplier</th>
-                        <th className="d-flex align-items-center justify-content-center aksi">Aksi</th>
+                    <thead className="col-6 justify-content-between align-items-center">
+                      <tr c>
+                        <th className="col-1 col-lg-1 ft">No</th>
+                        <th className="col-5 col-md-3 col-lg-2 ft">Nama Barang</th>
+                        <th className="col-2 col-md-1 col-lg-1 ft">Stock </th>
+                        <th className="col-6 col-md-3 col-lg-2 ft">Harga</th>
+                        <th className="col-12 ft col-md-2 nonez">Nama Supplier</th>
+                        <th className="col-12 ft col-md-2 nonez">Alamat Supplier</th>
+                        <th className="col-12 ft col-md-2 nonez">No Telp Supplier</th>
+                        <th className="col-12 ft d-flex align-items-center justify-content-center">Aksi</th>
                       </tr>
                     </thead>
                   </Table>

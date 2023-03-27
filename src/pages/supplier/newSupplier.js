@@ -59,21 +59,21 @@ function NewSupplier() {
     <>
       <Navbars />
       <div className="d-flex justify-content-center align-items-center mt-5">
-        <Card className="widths">
-          <Card.Header className="mx-0 d-flex justify-content-start bgColor widths">
+        <Card>
+          <Card.Header className="title-barang mx-0 d-flex justify-content-center justify-content-md-start justify-content-lg-start bgColor ">
             <Card.Text className=" font-20">Tambah Supplier </Card.Text>
           </Card.Header>
-          <Card.Header className="pt-4 d-flex justify-content-start  ">
-            <Form>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+          <Card.Header className="mx-0 d-flex justify-content-start justify-content-md-center">
+            <Form className="lebar">
+              <Form.Group className=" grup mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start  font-16">Nama Supplier </Form.Label>
                 <Form.Control className="font" type="text" placeholder="Masukkan Nama Supplier" onChange={handleNamaSupplier} />
               </Form.Group>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+              <Form.Group className="mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start  font-16">Alamat Supplier </Form.Label>
                 <Form.Control className="font" type="text" placeholder="Masukkan Alamat Supplier " onChange={handleAlamat} />
               </Form.Group>
-              <Form.Group className="mb-3 d-flex flex-row justify-content-between gap-5 w-200" controlId="formBasicEmail">
+              <Form.Group className="mb-3 d-flex flex-column flex-md-row flex-lg-row justify-content-between gap-0 gap-md-5 gap-lg-5" controlId="formBasicEmail">
                 <Form.Label className="text-title d-flex align-items-center justify-content-start  font-16">No Telp Supplier </Form.Label>
                 <Form.Control className="font" type="text" placeholder="Masukkan Nomor Telepon" onChange={handleNoTelp} />
               </Form.Group>

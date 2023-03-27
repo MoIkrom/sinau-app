@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
 import "../../css/Table.css";
 import edit from "../../assets/edit.png";
 import del from "../../assets/trash.png";
@@ -10,17 +9,17 @@ function Tables(props) {
   return (
     <>
       <Table striped bordered hover>
-        <tbody>
+        <tbody className="d">
           <tr className="font">
-            <td className="no-t">{props.no}</td>
-            <td className="name_br-t">{props.nama_Barang}</td>
-            <td className="stck-t">{props.stock}</td>
-            <td className="hrg-t">{props.harga}</td>
-            <td className="nm_spl-t">{props.nama_spl}</td>
-            <td className="alm_spl-t">{props.alamat_spl}</td>
-            <td className="tlp_spl-t">{props.telp_spl}</td>
-            <td>
-              <div className="d-flex flex-row gap-2 font ">
+            <td className="col-1 pt-3 ft">{props.no}</td>
+            <td className="col-5 col-md-4 pt-3 ft">{props.nama_Barang}</td>
+            <td className="col-2 pt-3 ft">{props.stock}</td>
+            <td className="col-6 col-md-3 pt-3 ft">{props.harga}</td>
+            <td className="nm_spl-t pt-3 nonez">{props.nama_spl}</td>
+            <td className="alm_spl-t pt-3 nonez">{props.alamat_spl}</td>
+            <td className="tlp_spl-t pt-3 nonez">{props.telp_spl}</td>
+            <td className="col-12 ft">
+              <div className="d-flex flex-column flex-md-column flex-lg-row flex-xl-row gap-2 font ">
                 <div className="d-flex flex-column align-items-center gap-2 ">
                   <img
                     src={del}
@@ -31,7 +30,7 @@ function Tables(props) {
                     }}
                     className="del cursor"
                   />
-                  Hapus
+                  <p className=" hide">Hapus</p>
                 </div>
                 <div className="d-flex flex-column align-items-center gap-2 cursor">
                   <img
@@ -42,7 +41,7 @@ function Tables(props) {
                     }}
                     className="del"
                   />
-                  Update
+                  <p className="hide">Update</p>
                 </div>
               </div>
             </td>
